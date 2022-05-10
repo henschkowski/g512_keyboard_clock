@@ -25,4 +25,4 @@ while (True):
         print(f"g810-led -k {keycode} {color}")
         subprocess.run(f"g810-led -k {keycode} {color}", shell=True)
 
-    time.sleep(1000)
+    time.sleep(60)
