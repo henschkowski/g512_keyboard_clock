@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-dateutil="*"
 stuf = "*"
+python-dateutil = "*"
 
 [dev-packages]
 
