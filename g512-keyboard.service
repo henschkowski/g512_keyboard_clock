@@ -1,0 +1,11 @@
+[Unit]
+Description=G512 Keyboard Clock
+
+[Service]
+ExecStart=/home/ralf/dev/g512_keyboard_clock/run_keyboard_clock.sh
+Restart=always
+User=ralf
+Group=ralf
+
+[Install]
+WantedBy=multi-user.target
