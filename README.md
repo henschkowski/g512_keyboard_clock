@@ -22,7 +22,7 @@ the LEDs on a Logitech (G512) keyboard:
 
 
 ### Installation as a systemd service
-* Edit `g512-keyboard.service`  (look for path anm user/group)
+* Edit `g512-keyboard.service` (path in ExecStart and User/Group settings)
 * `sudo cp g512-keyboard.service /etc/systemd/system`
 * `sudo systemctl daemon-reload`
 * `sudo systemctl enable g512-keyboard`
