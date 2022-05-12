@@ -21,7 +21,7 @@ the LEDs on a Logitech (G512) keyboard:
 * To try: Run ` nohup python3 g512_keyboard_clock.py & ` 
 
 
-### INstallation as systemd service
+### Installation as a systemd service
 * `sudo cp g512-keyboard.service /etc/systemd/system`
 * `sudo systemctl daemon-reload`
 * `sudo systemctl enable g512-keyboard`
