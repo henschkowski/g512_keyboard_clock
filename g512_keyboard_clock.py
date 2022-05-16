@@ -14,6 +14,11 @@ while (True):
     if min_ones == min_ones_old:
         time.sleep(interval)
         continue
+
+    cp = subprocess.run("g810-led --list-keyboards", shell=True, capture_output=True)
+    if "Matching or compatible device not found" in cp.stdout.decode("utf8"):
+        continue
+
     # Reset colors
     subprocess.run("g810-led -p /etc/g810-led/profile", shell=True)
 
