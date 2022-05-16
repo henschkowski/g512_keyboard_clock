@@ -5,6 +5,7 @@ from datetime import datetime
 min_ones_old = 0
 interval=10
 while (True):
+    time.sleep(interval)
     NOW = datetime.now()
 
     min_tens = (int)(NOW.minute / 10)
@@ -16,7 +17,7 @@ while (True):
         continue
 
     cp = subprocess.run("g810-led --list-keyboards", shell=True, capture_output=True)
-    if "Matching or compatible device not found" in cp.stdout.decode("utf8"):
+    if "Matching or compatible device not found" in cp.stdout.decode("utf8"):        
         continue
 
     # Reset colors
@@ -30,5 +31,3 @@ while (True):
             color = "ff0000"
         subprocess.run(f"g810-led -k {keycode} {color}", shell=True)
     min_ones_old = min_ones
-
-    time.sleep(interval)
