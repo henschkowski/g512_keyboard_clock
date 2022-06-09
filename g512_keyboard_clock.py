@@ -4,6 +4,7 @@ from datetime import datetime
 
 min_ones_old = 0
 interval=10
+keyboard_found = True
 while (True):
     time.sleep(interval)
     NOW = datetime.now()
@@ -17,8 +18,14 @@ while (True):
         continue
 
     cp = subprocess.run("g810-led --list-keyboards", shell=True, capture_output=True)
-    if "Matching or compatible device not found" in cp.stdout.decode("utf8"):        
+    if "Matching or compatible device not found" in cp.stdout.decode("utf8"):
+        if keyboard_found:
+            keyboard_found = False
+            print("No keyboard found")
         continue
+    if not keyboard_found:
+        print("Found a keyboard")
+        keyboard_found = True
 
     # Reset colors
     subprocess.run("g810-led -p /etc/g810-led/profile", shell=True)
